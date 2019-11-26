@@ -1,20 +1,17 @@
+import firebase from 'firebase/app';
+import StoryblokVue from 'storyblok-vue';
 import Vue from 'vue';
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
-import StoryblokVue from 'storyblok-vue'
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/analytics';
 
 Vue.use(StoryblokVue);
 
 Vue.config.productionTip = false;
-
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app');
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCx5HsT47bYwgeBQvskoW8JmwWKaH-8oDY',
@@ -27,19 +24,13 @@ const firebaseConfig = {
   measurementId: 'G-VZVTDL2EXS',
 };
 
-const firebase = require('firebase');
-// Required for side-effects
-require('firebase/firestore');
-
+console.log('here');
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-const db = firebase.firestore();
-
-db.collection('leagues').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log('doc', doc);
-    console.log(`${doc.id} => ${doc.data().title}`);
-  });
-});
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+}).$mount('#app');

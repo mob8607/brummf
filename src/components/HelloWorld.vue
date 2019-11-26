@@ -30,12 +30,18 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <c-list></c-list>
   </div>
 </template>
 
 <script>
+import cList from './c-list.vue';
+
 export default {
   name: 'HelloWorld',
+  components: {
+    cList,
+  },
   props: {
     msg: String,
   },
