@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import StoryblokVue from 'storyblok-vue';
 import Vue from 'vue';
 import App from './App.vue';
 import './registerServiceWorker';
@@ -7,6 +8,8 @@ import store from './store';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/analytics';
+
+Vue.use(StoryblokVue);
 
 Vue.config.productionTip = false;
 // Your web app's Firebase configuration
