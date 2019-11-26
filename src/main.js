@@ -3,6 +3,9 @@ import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
+import StoryblokVue from 'storyblok-vue'
+
+Vue.use(StoryblokVue);
 
 Vue.config.productionTip = false;
 
