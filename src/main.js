@@ -33,3 +33,10 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 const db = firebase.firestore();
+
+db.collection('leagues').get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    console.log('doc', doc);
+    console.log(`${doc.id} => ${doc.data().title}`);
+  });
+});
